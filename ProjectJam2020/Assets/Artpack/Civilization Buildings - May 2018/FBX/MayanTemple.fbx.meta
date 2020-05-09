@@ -3,7 +3,12 @@ guid: ba5c9ddb967518a4fa7550bd8efa7048
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MayanTemple
+    second: {fileID: 2100000, guid: d281d23798e7d65449bec43838a4ec21, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
