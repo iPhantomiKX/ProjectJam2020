@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Control;
 using UnityEngine;
 
 namespace RPG.Core
@@ -11,12 +12,12 @@ namespace RPG.Core
 
         void Awake()
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            target = FindObjectOfType<PlayerController>().transform;
         }
 
         private void Update() 
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            target = FindObjectOfType<PlayerController>().transform;
         }
 
         // Update is called once per frame

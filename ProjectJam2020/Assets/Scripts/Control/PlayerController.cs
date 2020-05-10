@@ -27,6 +27,7 @@ namespace RPG.Control
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
+        [SerializeField] Collider avoidanceCollider;
 
         private void Awake()
         {
@@ -44,10 +45,11 @@ namespace RPG.Control
 
             //if (InteractWithUI()) return;
             if (InteractWithComponent()) return;
-            if (InteractWithMovement()) 
+            if (InteractWithMovement()) return;
+
+            if (GetComponent<Mover>().navMeshAgent.remainingDistance <= GetComponent<Mover>().navMeshAgent.stoppingDistance)
             {
-                print("move");
-                return;
+                GetComponent<Mover>().Cancel();
             }
 
             SetCursor(CursorType.None);

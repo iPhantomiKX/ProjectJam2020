@@ -1211,10 +1211,20 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412706, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412707, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412707, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412710, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1224,7 +1234,7 @@ PrefabInstance:
     - target: {fileID: 3655100521026412710, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412728, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1237,6 +1247,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a168702fe35bccb458b30f1a8f12c5b6,
         type: 2}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4946760871696370554}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+        type: 3}
+      propertyPath: zombie
+      value: 
+      objectReference: {fileID: 1330089635839470438, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
+        type: 3}
     - target: {fileID: 5349467676003258776, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: chaseDistance
@@ -1245,7 +1291,7 @@ PrefabInstance:
     - target: {fileID: 5349467676003258776, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: shoutDistance
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7047321404386283660, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1267,8 +1313,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 22100000, guid: 4480542b945667447b6545301dbbbabd,
-        type: 2}
+      objectReference: {fileID: 9100000, guid: 2fd87b6b33ec3e54da6004ac53fe4655, type: 2}
     - target: {fileID: 7667620909642792911, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: m_WarningMessage
@@ -1282,3 +1327,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8511779394981489603}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4946760871696370554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8511779394981489603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612155743e0851540a7763d18653dcee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

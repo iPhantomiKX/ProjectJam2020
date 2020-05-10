@@ -5,6 +5,7 @@ using RPG.Movement;
 using RPG.Attributes;
 using RPG.Utils;
 using System;
+using System.Collections.Generic;
 
 namespace RPG.Control
 {
@@ -21,20 +22,28 @@ namespace RPG.Control
         Fighter fighter;
         Health health;
         Mover mover;
-        public GameObject player;
+        public GameObject[] enemies;
 
         LazyValue<Vector3> guardPosition;
-        float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceLastSawEnemy = Mathf.Infinity;
         float timeSinceArrivedAtWaypoint = Mathf.Infinity;
         float timeSinceAggrevated = Mathf.Infinity;
         int currentWaypointIndex = 0;
+        float distanceToEnemy = 0;
 
         private void Awake()
         {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
-            player = GameObject.FindWithTag("Player");
+            if(gameObject.tag == "Enemy")
+            {
+                enemies = GameObject.FindGameObjectsWithTag("Ally");
+            }
+            else if(gameObject.tag == "Ally")
+            {
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            }
             guardPosition = new LazyValue<Vector3>(GetGuardPosition);
         }
 
@@ -50,25 +59,53 @@ namespace RPG.Control
 
         private void Update()
         {
-            player = GameObject.FindWithTag("Player");
+            if(gameObject.tag == "Enemy")
+            {
+                enemies = GameObject.FindGameObjectsWithTag("Ally");
+            }
+            else if(gameObject.tag == "Ally")
+            {
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            }
+
             if (health.IsDead()) return;
 
-            //print(InAttackRangeOfPlayer());
-            if (IsAggrevated() && fighter.CanAttack(player))
+            if(fighter.CanAttack(ClosestEnemy(enemies)))
             {
                 AttackBehaviour();
             }
-            else if (timeSinceLastSawPlayer < suspicionTime)
-            {
-                //Suspicion State
-                SuspicionBehaviour();
-            }
-            else
-            {
-                PatrolBehaviour();
-            }
+            // if (IsAggrevated() && fighter.CanAttack(ClosestEnemy(enemies)))
+            // {
+            //     AttackBehaviour();
+            // }
+            // else if (timeSinceLastSawEnemy < suspicionTime)
+            // {
+            //     //Suspicion State
+            //     SuspicionBehaviour();
+            // }
+            // else
+            // {
+            //     PatrolBehaviour();
+            // }
 
             UpdateTimer();
+        }
+
+        GameObject ClosestEnemy(GameObject[] _enemies)
+        {
+            GameObject tMin = null;
+            float minDist = Mathf.Infinity;
+            Vector3 currentPos = transform.position;
+            foreach (GameObject t in enemies)
+            {
+                float dist = Vector3.Distance(t.transform.position, currentPos);
+                if (dist < minDist)
+                {
+                    tMin = t;
+                    minDist = dist;
+                }
+            }
+            return tMin;
         }
 
         public void Aggrevate()
@@ -79,7 +116,7 @@ namespace RPG.Control
 
         private void UpdateTimer()
         {
-            timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceLastSawEnemy += Time.deltaTime;
             timeSinceArrivedAtWaypoint += Time.deltaTime;
         }
 
@@ -126,13 +163,16 @@ namespace RPG.Control
 
         private void AttackBehaviour()
         {
-            timeSinceLastSawPlayer = 0;
-            fighter.Attack(player);
+            timeSinceLastSawEnemy = 0;
+            foreach(var enemy in enemies)
+            {
+                fighter.Attack(ClosestEnemy(enemies));
+            }
 
-            AggrevateNearbyEnemies();
+            AggrevateNearbyAllies();
         }
 
-        private void AggrevateNearbyEnemies()
+        private void AggrevateNearbyAllies()
         {
             RaycastHit[] hits = Physics.SphereCastAll(transform.position, shoutDistance, Vector3.up, 0);
             // Loop over all the hits
@@ -141,7 +181,7 @@ namespace RPG.Control
                 // Find any enemy components
                 AIController ai = hit.collider.GetComponent<AIController>();
                 if (ai == null) continue;
-
+                
                 // aggrevate those enemies
                 ai.Aggrevate();
             }
@@ -149,16 +189,26 @@ namespace RPG.Control
 
         private bool IsAggrevated()
         {
-            if(player == null)  
+            foreach(var enemy in enemies)
             {
-                player = GameObject.FindWithTag("Player");
-                SuspicionBehaviour();
-                return false;
-            }
+                if(enemy == null)  
+                {
+                    if(gameObject.tag == "Enemy")
+                    {
+                        enemies = GameObject.FindGameObjectsWithTag("Ally");
+                    }
+                    else if(gameObject.tag == "Ally")
+                    {
+                        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    }
+                    return false;
+                }
 
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            // check aggrevated
-            return distanceToPlayer < chaseDistance || timeSinceAggrevated < aggroCooldownTime;
+                distanceToEnemy = Vector3.Distance(enemy.transform.position, transform.position);
+                // check aggrevated
+            }
+            return distanceToEnemy < chaseDistance || timeSinceAggrevated < aggroCooldownTime;
+            
         }
 
         //Called By Unity

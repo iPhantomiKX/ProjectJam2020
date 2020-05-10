@@ -11,12 +11,10 @@ namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
-        [SerializeField] Transform target;
+        //[SerializeField] Transform target;
         [SerializeField] float maxSpeed = 6f;
         [SerializeField] float maxNavPathLength = 40f;
-        [SerializeField] Vector3 minPosition;
-        [SerializeField] Vector3 maxPosition;
-        NavMeshAgent navMeshAgent;
+        public NavMeshAgent navMeshAgent;
         Health health;
 
         private void Awake()

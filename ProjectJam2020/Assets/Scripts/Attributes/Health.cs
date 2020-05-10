@@ -120,7 +120,7 @@ namespace RPG.Attributes
             GameObject sZombie = Instantiate(zombie, gameObject.transform.position, Quaternion.identity);
             //adds to an index of Spawned Zombies
             //multiply to the stopping distance
-            sZombie.GetComponent<NavMeshAgent>().stoppingDistance = 3f;
+            sZombie.GetComponent<NavMeshAgent>().stoppingDistance = UnityEngine.Random.Range(3f, 6f);
         }
 
         private void RegenerateHealth()
