@@ -155,7 +155,7 @@ Transform:
   m_Father: {fileID: 5739088110058415478}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3806288829955801074
+--- !u!114 &1575297988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,17 +164,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330089635839470438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf840d3ff2e9a24a80c63e6f7aab34e, type: 3}
+  m_Script: {fileID: 11500000, guid: 248472bd2c5c5ad4abb0d5fcab050a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 15
+  chaseDistance: 10
   suspicionTime: 3
   aggroCooldownTime: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1
   waypointDwellTime: 3
-  shoutDistance: 20
-  enemy: {fileID: 0}
+  shoutDistance: 15
+  fighter: {fileID: 0}
+  health: {fileID: 0}
+  mover: {fileID: 0}
+  enemies: []
 --- !u!1 &1893789474495800547
 GameObject:
   m_ObjectHideFlags: 0

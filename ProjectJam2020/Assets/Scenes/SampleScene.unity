@@ -418,7 +418,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 240192314}
-  - component: {fileID: 240192312}
   m_Layer: 0
   m_Name: PlayField
   m_TagString: Untagged
@@ -426,35 +425,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &240192312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240192311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: d1cec3be9e9de5f45820b096bf193a70, type: 2}
 --- !u!4 &240192314
 Transform:
   m_ObjectHideFlags: 0
@@ -1715,7 +1685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670706877}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: -100}
+  m_LocalPosition: {x: -100, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 240192314}
@@ -4405,7 +4375,7 @@ PrefabInstance:
     - target: {fileID: 8285837254511130998, guid: 286dcb0bbd2635f40b9c9a5c5cd0b0ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.25
+      value: 20.7
       objectReference: {fileID: 0}
     - target: {fileID: 8285837254511130998, guid: 286dcb0bbd2635f40b9c9a5c5cd0b0ad,
         type: 3}
@@ -4415,7 +4385,7 @@ PrefabInstance:
     - target: {fileID: 8285837254511130998, guid: 286dcb0bbd2635f40b9c9a5c5cd0b0ad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.5
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 8285837254511130998, guid: 286dcb0bbd2635f40b9c9a5c5cd0b0ad,
         type: 3}
@@ -4866,11 +4836,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FemaleSoldierAlly
-      objectReference: {fileID: 0}
-    - target: {fileID: 1330089635839470438, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607079108579236213, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
         type: 3}
