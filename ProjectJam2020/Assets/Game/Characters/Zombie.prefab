@@ -764,6 +764,31 @@ Transform:
   m_Father: {fileID: 95282527866287854}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389178154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4946760871696370533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0c411a12c77b74d9519d5900544646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 50
+  suspicionTime: 3
+  aggroCooldownTime: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  waypointDwellTime: 3
+  shoutDistance: 75
+  fighter: {fileID: 0}
+  health: {fileID: 0}
+  mover: {fileID: 0}
+  enemies: []
+  playerAllies: []
+  playerEnemies: []
 --- !u!1 &5005673509887600960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1169,7 @@ PrefabInstance:
     - target: {fileID: 352089281374261941, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -29.5
       objectReference: {fileID: 0}
     - target: {fileID: 352089281374261941, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1154,7 +1179,7 @@ PrefabInstance:
     - target: {fileID: 352089281374261941, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.5
+      value: 45.6
       objectReference: {fileID: 0}
     - target: {fileID: 352089281374261941, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1214,7 +1239,7 @@ PrefabInstance:
     - target: {fileID: 3655100521026412706, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: maxSpeed
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412707, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1234,12 +1259,12 @@ PrefabInstance:
     - target: {fileID: 3655100521026412710, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Zombie
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412728, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: characterClass
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412728, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1256,16 +1281,16 @@ PrefabInstance:
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 4946760871696370554}
+      objectReference: {fileID: 4946760871696370533}
     - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnZombie
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
@@ -1281,8 +1306,7 @@ PrefabInstance:
         type: 3}
       propertyPath: zombie
       value: 
-      objectReference: {fileID: 1330089635839470438, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 5349467676003258776, guid: c58d66afb704f9948afd9b1847c33fc7,
         type: 3}
       propertyPath: chaseDistance
@@ -1319,7 +1343,8 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5349467676003258776, guid: c58d66afb704f9948afd9b1847c33fc7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c58d66afb704f9948afd9b1847c33fc7, type: 3}
 --- !u!4 &8285837254511130998 stripped
 Transform:
@@ -1327,15 +1352,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8511779394981489603}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4946760871696370554 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3655100521026412729, guid: c58d66afb704f9948afd9b1847c33fc7,
+--- !u!1 &4946760871696370533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3655100521026412710, guid: c58d66afb704f9948afd9b1847c33fc7,
     type: 3}
   m_PrefabInstance: {fileID: 8511779394981489603}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612155743e0851540a7763d18653dcee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

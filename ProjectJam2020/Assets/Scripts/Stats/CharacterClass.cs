@@ -2,8 +2,8 @@
 {
     public enum CharacterClass
     {
-        Player,
+        Ally,
         Enemy,
-        Mage
+        Zombie
     }
 }

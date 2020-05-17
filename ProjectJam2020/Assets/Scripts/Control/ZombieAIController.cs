@@ -1,18 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class ZombieAIController : MonoBehaviour
+namespace RPG.Control
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ZombieAIController : AIController
     {
-        
-    }
+        public GameObject[] playerAllies;
+        public GameObject[] playerEnemies;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+         public override void Awake()
+        {
+            base.Awake();
+            playerAllies = GameObject.FindGameObjectsWithTag("Ally");
+            playerEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+            
+        }
+        // Start is called before the first frame update
+        public override void Start()
+        {
+            base.Start();
+            enemies = playerAllies.Concat(playerEnemies).ToArray();
+        }
+
+        // Update is called once per frame
+        public override void Update()
+        {
+            base.Update();
+            enemies = playerAllies.Concat(playerEnemies).ToArray();
+
+            if (health.IsDead()) return;
+
+            if (fighter.CanAttack(ClosestEnemy(enemies)))
+            {
+                AttackBehaviour();
+            }
+        }
     }
 }

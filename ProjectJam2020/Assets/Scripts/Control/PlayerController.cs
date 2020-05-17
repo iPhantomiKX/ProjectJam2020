@@ -27,7 +27,7 @@ namespace RPG.Control
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
-        [SerializeField] Collider avoidanceCollider;
+        [SerializeField] float influenceDistance = 10f;
 
         private void Awake()
         {
@@ -47,32 +47,14 @@ namespace RPG.Control
             if (InteractWithComponent()) return;
             if (InteractWithMovement()) return;
 
-            if (GetComponent<Mover>().navMeshAgent.remainingDistance <= GetComponent<Mover>().navMeshAgent.stoppingDistance)
-            {
-                GetComponent<Mover>().Cancel();
-            }
-
             SetCursor(CursorType.None);
         }
 
         private void CheckSpecialAbilityKeys()
         {
-            //var actionStore = GetComponent<ActionStore>();
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                //actionStore.Use(0, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                //actionStore.Use(1, gameObject);
-            }
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //actionStore.Use(2, gameObject);
-            }
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                //actionStore.Use(3, gameObject);
             }
         }
 

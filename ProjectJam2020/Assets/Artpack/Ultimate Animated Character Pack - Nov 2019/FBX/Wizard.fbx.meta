@@ -36,7 +36,42 @@ ModelImporter:
   - first:
       74: -2469224417514991532
     second: CharacterArmature|Walk_Carry
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Belt
+    second: {fileID: 2100000, guid: e057a3e8b278a5e43ae9f7305d31ca4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes
+    second: {fileID: 2100000, guid: 2e4b3b344feeefe4ca6e9da03a9bd37a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: 80fac46e415fe6946b8f6aa1e154d8e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: 2100000, guid: 7f39afc8c9aeb3c4ea1d054427844d4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 3a157220fa14d384e90cefd13bbe96ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: 1fb9b4b6fb76a6645962df5ee89f35b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 5a8fdb392fea9384e8f0430ffca01cb0, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -51,7 +86,57 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'CharacterArmature|Defeat' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Body 1' has translation animation
+      that will be discarded.\n\t'Body 1' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\nClip 'CharacterArmature|Idle'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Body
+      1' is inbetween humanoid transforms and has rotation animation that will be
+      discarded.\n\nClip 'CharacterArmature|PickUp' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Body 1' has translation animation that
+      will be discarded.\n\t'Body 1' is inbetween humanoid transforms and has rotation
+      animation that will be discarded.\n\t'Shoulder.R' has translation animation
+      that will be discarded.\n\nClip 'CharacterArmature|Punch' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Body 1' has translation animation
+      that will be discarded.\n\t'Body 1' is inbetween humanoid transforms and has
+      rotation animation that will be discarded.\n\t'Shoulder.R' has translation
+      animation that will be discarded.\n\nClip 'CharacterArmature|RecieveHit' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Body 1' has translation
+      animation that will be discarded.\n\t'Body 1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\nClip 'CharacterArmature|Shoot_OneHanded'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Body
+      1' has translation animation that will be discarded.\n\nClip 'CharacterArmature|SitDown'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Body
+      1' has translation animation that will be discarded.\n\t'Body 1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'CharacterArmature|StandUp' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Body 1' has translation animation that will be discarded.\n\t'Body
+      1' is inbetween humanoid transforms and has rotation animation that will be
+      discarded.\n\nClip 'CharacterArmature|Victory' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Body 1' has translation animation that
+      will be discarded.\n\t'Shoulder.L' has translation animation that will be discarded.\n\t'Shoulder.R'
+      has translation animation that will be discarded.\n\nClip 'CharacterArmature|Walk'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Body
+      1' has translation animation that will be discarded.\n\t'Body 1' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'UpperLeg.L'
+      has translation animation that will be discarded.\n\t'UpperLeg.R' has translation
+      animation that will be discarded.\n\nClip 'CharacterArmature|Walk_Carry' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Body 1' has translation
+      animation that will be discarded.\n\t'Body 1' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'UpperLeg.L' has translation
+      animation that will be discarded.\n\t'UpperLeg.R' has translation animation
+      that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

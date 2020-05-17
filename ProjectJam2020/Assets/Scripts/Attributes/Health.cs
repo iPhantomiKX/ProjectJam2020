@@ -104,7 +104,7 @@ namespace RPG.Attributes
             return healthPoints.value / GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        private void Die()
+        public void Die()
         {
             if (isDead) return;
 

@@ -1270,6 +1270,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2314248719185208901, guid: 3ad023ab808085e4a83f0b1464aca1cd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ally
+      objectReference: {fileID: 0}
     - target: {fileID: 2314248719185208922, guid: 3ad023ab808085e4a83f0b1464aca1cd,
         type: 3}
       propertyPath: onDie.m_PersistentCalls.m_Calls.Array.size
