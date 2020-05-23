@@ -40,7 +40,7 @@ namespace RPG.Control
                 print(gameObject.name + " runaway");
                 FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 2f);
             }
-            if(player.gameObject.GetComponent<NavMeshAgent>().remainingDistance < player.gameObject.GetComponent<NavMeshAgent>().stoppingDistance)
+            if(player.gameObject.GetComponent<NavMeshAgent>().remainingDistance < player.gameObject.GetComponent<NavMeshAgent>().stoppingDistance || !added)
             {
                 gameObject.GetComponent<Mover>().Cancel();
             }
@@ -54,6 +54,8 @@ namespace RPG.Control
         {
             this.GetComponent<Mover>().StartMoveAction(player.gameObject.transform.position, speedFraction);
         }
+
+
     }
 }
 

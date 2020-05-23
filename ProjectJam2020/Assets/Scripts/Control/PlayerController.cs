@@ -27,7 +27,6 @@ namespace RPG.Control
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
-        [SerializeField] float influenceDistance = 10f;
 
         private void Awake()
         {
@@ -48,14 +47,6 @@ namespace RPG.Control
             if (InteractWithMovement()) return;
 
             SetCursor(CursorType.None);
-        }
-
-        private void CheckSpecialAbilityKeys()
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                //actionStore.Use(2, gameObject);
-            }
         }
 
         private bool InteractWithUI()

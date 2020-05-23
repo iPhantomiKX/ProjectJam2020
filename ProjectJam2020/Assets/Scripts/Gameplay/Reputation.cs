@@ -10,24 +10,53 @@ namespace RPG.Gameplay
     public class Reputation : MonoBehaviour, ISaveable
     {
         [SerializeField]int reputation;
-        [SerializeField]AllyAIController[] allies;
+        [SerializeField] float influenceDistance = 10f;
+        [SerializeField]List<AllyAIController> allies;
+        float distanceToAlly;
+
 
         private void Awake()
         {
             reputation = 0;
-            allies = GameObject.FindObjectsOfType<AllyAIController>();
         }
 
         private void Update()
         {
-            allies = GameObject.FindObjectsOfType<AllyAIController>();
+            //allies = GameObject.FindObjectsOfType<AllyAIController>();
 
-            foreach(var ally in allies)
+            // foreach(var ally in allies)
+            // {
+            //     if(!ally.added)
+            //     {
+            //         AddReputation((int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation));
+            //         ally.added = true;
+            //     }
+            // }
+            GetAlly();
+        }
+
+        private void GetAlly()
+        {
+            foreach(var ally in GameObject.FindObjectsOfType<AllyAIController>())
             {
-                if(!ally.added)
+                if(ally == null)
                 {
-                    AddReputation((int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation));
-                    ally.added = true;
+                    print("No Ally Nearby");
+                    return;
+                }
+
+                distanceToAlly = Vector3.Distance(ally.transform.position, gameObject.transform.position);
+
+                if(distanceToAlly <= influenceDistance 
+                && Input.GetKeyDown(KeyCode.Space))
+                {
+                    if(!ally.added)
+                    {
+                        allies.Add(ally);
+                        AddReputation((int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation));
+                        ally.added = true;
+                    }
+                    
                 }
             }
         }
@@ -55,6 +84,14 @@ namespace RPG.Gameplay
             {
                 //GameOver
             }
+        }
+
+        
+
+        public void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, influenceDistance);
         }
     }
 }
