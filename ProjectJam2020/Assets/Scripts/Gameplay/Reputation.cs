@@ -15,23 +15,13 @@ namespace RPG.Gameplay
         float distanceToAlly;
 
 
-        private void Awake()
+        private void Start()
         {
-            reputation = 0;
+            reputation = (int)gameObject.GetComponent<BaseStats>().GetStat(Stat.Reputation);
         }
 
         private void Update()
         {
-            //allies = GameObject.FindObjectsOfType<AllyAIController>();
-
-            // foreach(var ally in allies)
-            // {
-            //     if(!ally.added)
-            //     {
-            //         AddReputation((int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation));
-            //         ally.added = true;
-            //     }
-            // }
             GetAlly();
         }
 
@@ -50,13 +40,13 @@ namespace RPG.Gameplay
                 if(distanceToAlly <= influenceDistance 
                 && Input.GetKeyDown(KeyCode.Space))
                 {
-                    if(!ally.added)
+                    if(!ally.added 
+                    && reputation >= (int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation) )
                     {
                         allies.Add(ally);
                         AddReputation((int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation));
                         ally.added = true;
                     }
-                    
                 }
             }
         }

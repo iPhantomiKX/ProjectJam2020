@@ -23,7 +23,7 @@ namespace RPG.Control
         public Fighter fighter;
         public Health health;
         public Mover mover;
-        public GameObject[] enemies;
+        public List<GameObject> enemies;
 
         LazyValue<Vector3> guardPosition;
         float timeSinceLastSawEnemy = Mathf.Infinity;
@@ -53,39 +53,23 @@ namespace RPG.Control
 
         public virtual void Update()
         {
-            // if(gameObject.tag == "Enemy")
-            // {
-            //     enemies = GameObject.FindGameObjectsWithTag("Ally");
-            // }
-            // else if(gameObject.tag == "Ally")
-            // {
-            //     enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            // }
-
-            // if (health.IsDead()) return;
-
-            // if(fighter.CanAttack(ClosestEnemy(enemies)))
-            // {
-            //     AttackBehaviour();
-            // }
-            // if (IsAggrevated() && fighter.CanAttack(ClosestEnemy(enemies)))
-            // {
-            //     AttackBehaviour();
-            // }
-            // else if (timeSinceLastSawEnemy < suspicionTime)
-            // {
-            //     //Suspicion State
-            //     SuspicionBehaviour();
-            // }
-            // else
-            // {
-            //     PatrolBehaviour();
-            // }
-
             UpdateTimer();
         }
 
-        public GameObject ClosestEnemy(GameObject[] _enemies)
+        public void AddEnemyToList(GameObject Enemy)
+        {
+            enemies.Add(Enemy);
+        }
+
+        public void GetAllEnemies(GameObject[] enemies)
+        {
+            foreach(var enemy in enemies)
+            {
+                AddEnemyToList(enemy);
+            }
+        }
+
+        public GameObject ClosestEnemy(List<GameObject> _enemies)
         {
             GameObject tMin = null;
             float minDist = Mathf.Infinity;

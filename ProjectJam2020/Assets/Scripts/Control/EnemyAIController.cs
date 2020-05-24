@@ -9,7 +9,7 @@ namespace RPG.Control
          public override void Awake()
         {
             base.Awake();
-            enemies = GameObject.FindGameObjectsWithTag("Ally");
+            GetAllEnemies(GameObject.FindGameObjectsWithTag("Ally"));
         }
         // Start is called before the first frame update
         public override void Start()
@@ -21,7 +21,7 @@ namespace RPG.Control
         public override void Update()
         {
             base.Update();
-            enemies = GameObject.FindGameObjectsWithTag("Ally");
+            GetAllEnemies(GameObject.FindGameObjectsWithTag("Ally"));
 
             if (health.IsDead()) return;
 

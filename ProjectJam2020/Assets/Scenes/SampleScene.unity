@@ -1212,10 +1212,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1575297988, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2, type: 3}
+      propertyPath: chaseDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1575297988, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2, type: 3}
+      propertyPath: shoutDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1330089635839470438, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
         type: 3}
       propertyPath: m_Name
       value: FemaleSoldierAlly
+      objectReference: {fileID: 0}
+    - target: {fileID: 1330089635839470456, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
+        type: 3}
+      propertyPath: startingLevel
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2607079108579236213, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
         type: 3}

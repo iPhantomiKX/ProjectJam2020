@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using RPG.Movement;
+using RPG.Stats;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,20 +14,24 @@ namespace RPG.Control
         public override void Awake()
         {
             base.Awake();
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
             player = GameObject.FindObjectOfType<PlayerController>();
+            GetAllEnemies(GameObject.FindGameObjectsWithTag("Enemy"));
         }
         // Start is called before the first frame update
         public override void Start()
         {
             base.Start();
+            if(GetComponent<BaseStats>().GetStat(Stat.Reputation) > player.GetComponent<BaseStats>().GetStat(Stat.Reputation))
+            {
+                enemies.Add(player.gameObject);
+            }
         }
 
         // Update is called once per frame
         public override void Update()
         {
             base.Update();
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GetAllEnemies(GameObject.FindGameObjectsWithTag("Enemy"));
 
             if (health.IsDead()) return;
 
@@ -40,13 +45,16 @@ namespace RPG.Control
                 print(gameObject.name + " runaway");
                 FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 2f);
             }
-            if(player.gameObject.GetComponent<NavMeshAgent>().remainingDistance < player.gameObject.GetComponent<NavMeshAgent>().stoppingDistance || !added)
+            if(player != null)
             {
-                gameObject.GetComponent<Mover>().Cancel();
-            }
-            else
-            {
-                FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 1f);
+                if(player.gameObject.GetComponent<NavMeshAgent>().remainingDistance < player.gameObject.GetComponent<NavMeshAgent>().stoppingDistance || !added)
+                {
+                    gameObject.GetComponent<Mover>().Cancel();
+                }
+                else
+                {
+                    FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 1f);
+                }
             }
         }
 
@@ -54,8 +62,6 @@ namespace RPG.Control
         {
             this.GetComponent<Mover>().StartMoveAction(player.gameObject.transform.position, speedFraction);
         }
-
-
     }
 }
 

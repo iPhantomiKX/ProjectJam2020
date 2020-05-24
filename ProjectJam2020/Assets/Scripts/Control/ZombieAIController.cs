@@ -21,14 +21,15 @@ namespace RPG.Control
         public override void Start()
         {
             base.Start();
-            enemies = playerAllies.Concat(playerEnemies).ToArray();
+            GetAllEnemies(playerAllies.Concat(playerEnemies).ToArray());
+            
         }
 
         // Update is called once per frame
         public override void Update()
         {
             base.Update();
-            enemies = playerAllies.Concat(playerEnemies).ToArray();
+            GetAllEnemies(playerAllies.Concat(playerEnemies).ToArray());
 
             if (health.IsDead()) return;
 

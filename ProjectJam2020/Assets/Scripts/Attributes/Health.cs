@@ -9,6 +9,7 @@ using RPG.Combat;
 using RPG.Utils;
 using UnityEngine.Events;
 using UnityEngine.AI;
+using RPG.Control;
 
 namespace RPG.Attributes
 {
@@ -112,7 +113,10 @@ namespace RPG.Attributes
             print(gameObject.name + " is dead");
             GetComponent<Animator>().SetTrigger("die");
             GetComponent<ActionScheduler>().CancelCurrentAction();
-            Destroy(gameObject, 2);
+            if(!gameObject.GetComponent<PlayerController>())
+            {
+                Destroy(gameObject, 2);
+            }
         }
 
         public void SpawnZombie()
