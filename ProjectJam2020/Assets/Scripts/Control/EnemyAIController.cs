@@ -23,8 +23,6 @@ namespace RPG.Control
             base.Update();
             GetAllEnemies(GameObject.FindGameObjectsWithTag("Ally"));
 
-            if (health.IsDead()) return;
-
             if (IsAggrevated() && fighter.CanAttack(ClosestEnemy(enemies)))
             {
                 AttackBehaviour();

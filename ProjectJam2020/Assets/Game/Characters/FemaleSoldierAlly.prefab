@@ -167,17 +167,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248472bd2c5c5ad4abb0d5fcab050a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 10
+  chaseDistance: 15
   suspicionTime: 3
   aggroCooldownTime: 5
   patrolPath: {fileID: 0}
   waypointTolerance: 1
   waypointDwellTime: 3
-  shoutDistance: 15
+  shoutDistance: 20
   fighter: {fileID: 0}
   health: {fileID: 0}
   mover: {fileID: 0}
   enemies: []
+  added: 0
 --- !u!1 &1893789474495800547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1367,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a168702fe35bccb458b30f1a8f12c5b6,
         type: 2}
+    - target: {fileID: 2314248719185208923, guid: 3ad023ab808085e4a83f0b1464aca1cd,
+        type: 3}
+      propertyPath: startingLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8316256280906012271, guid: 3ad023ab808085e4a83f0b1464aca1cd,
         type: 3}
       propertyPath: rightHandTransform

@@ -31,8 +31,6 @@ namespace RPG.Control
             base.Update();
             GetAllEnemies(playerAllies.Concat(playerEnemies).ToArray());
 
-            if (health.IsDead()) return;
-
             if (fighter.CanAttack(ClosestEnemy(enemies)))
             {
                 AttackBehaviour();

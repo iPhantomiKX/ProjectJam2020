@@ -38,7 +38,7 @@ namespace RPG.Gameplay
                 distanceToAlly = Vector3.Distance(ally.transform.position, gameObject.transform.position);
 
                 if(distanceToAlly <= influenceDistance 
-                && Input.GetKeyDown(KeyCode.Space))
+                && Input.GetKeyDown(gameObject.GetComponent<PlayerController>().AddAllyButton))
                 {
                     if(!ally.added 
                     && reputation >= (int)ally.GetComponent<BaseStats>().GetStat(Stat.Reputation) )
@@ -75,8 +75,6 @@ namespace RPG.Gameplay
                 //GameOver
             }
         }
-
-        
 
         public void OnDrawGizmosSelected()
         {

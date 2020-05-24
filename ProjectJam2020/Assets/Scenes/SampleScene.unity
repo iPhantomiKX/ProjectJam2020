@@ -543,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 8285837254511130998, guid: 286dcb0bbd2635f40b9c9a5c5cd0b0ad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -29.5
+      value: 50.7
       objectReference: {fileID: 0}
     - target: {fileID: 8285837254511130998, guid: 286dcb0bbd2635f40b9c9a5c5cd0b0ad,
         type: 3}
@@ -1212,14 +1212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1575297988, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2, type: 3}
-      propertyPath: chaseDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1575297988, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2, type: 3}
-      propertyPath: shoutDistance
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1330089635839470438, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
         type: 3}
       propertyPath: m_Name
@@ -1228,7 +1220,7 @@ PrefabInstance:
     - target: {fileID: 1330089635839470456, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
         type: 3}
       propertyPath: startingLevel
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607079108579236213, guid: 8fbdcc8143ff6004b9a6aff36e3ce9c2,
         type: 3}
@@ -2138,6 +2130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 723063687, guid: b9c9937029b8fb9488a47de637f7e909, type: 3}
+      propertyPath: AddAllyButton
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 1680127471817900261, guid: b9c9937029b8fb9488a47de637f7e909,
         type: 3}
       propertyPath: m_Name

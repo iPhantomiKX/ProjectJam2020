@@ -53,6 +53,7 @@ namespace RPG.Control
 
         public virtual void Update()
         {
+            if(health.IsDead()) return;
             UpdateTimer();
         }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
 using RPG.Movement;
 using RPG.Stats;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace RPG.Control
             if(GetComponent<BaseStats>().GetStat(Stat.Reputation) > player.GetComponent<BaseStats>().GetStat(Stat.Reputation))
             {
                 enemies.Add(player.gameObject);
+                gameObject.AddComponent<CombatTarget>();
             }
         }
 
@@ -33,8 +35,6 @@ namespace RPG.Control
             base.Update();
             GetAllEnemies(GameObject.FindGameObjectsWithTag("Enemy"));
 
-            if (health.IsDead()) return;
-
             if (IsAggrevated() && fighter.CanAttack(ClosestEnemy(enemies)))
             {
                 AttackBehaviour();
@@ -43,6 +43,7 @@ namespace RPG.Control
             {
                 //Runaway
                 print(gameObject.name + " runaway");
+                //Exit the area
                 FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 2f);
             }
             if(player != null)
