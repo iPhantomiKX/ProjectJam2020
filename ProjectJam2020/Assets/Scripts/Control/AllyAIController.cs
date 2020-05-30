@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
 using RPG.Combat;
 using RPG.Movement;
 using RPG.Stats;
@@ -33,30 +34,44 @@ namespace RPG.Control
         public override void Update()
         {
             base.Update();
-            GetAllEnemies(GameObject.FindGameObjectsWithTag("Enemy"));
+            foreach(var enemy in enemies)
+            {
+                if(!enemy.GetComponent<Health>().IsDead() && enemies.IndexOf(enemy) < 0)
+                {
+                    enemies.Add(enemy);
+                }
+                if(enemy.GetComponent<Health>().IsDead())
+                {
+                    enemies.Remove(enemy);
+                }
+            }
 
             if (IsAggrevated() && fighter.CanAttack(ClosestEnemy(enemies)))
             {
                 AttackBehaviour();
             }
-            if(GameObject.FindGameObjectsWithTag("Zombie").Length >= 1)
+            if(added)
             {
-                //Runaway
-                print(gameObject.name + " runaway");
-                //Exit the area
-                FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 2f);
-            }
-            if(player != null)
-            {
-                if(player.gameObject.GetComponent<NavMeshAgent>().remainingDistance < player.gameObject.GetComponent<NavMeshAgent>().stoppingDistance || !added)
+                if(GameObject.FindGameObjectsWithTag("Zombie").Length >= 1)
                 {
-                    gameObject.GetComponent<Mover>().Cancel();
+                    //Runaway
+                    print(gameObject.name + " runaway");
+                    //Exit the area
+                    //FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 2f);
                 }
-                else
+                if(player != null)
                 {
-                    FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 1f);
+                    if(player.gameObject.GetComponent<NavMeshAgent>().remainingDistance < player.gameObject.GetComponent<NavMeshAgent>().stoppingDistance || !added)
+                    {
+                        gameObject.GetComponent<Mover>().Cancel();
+                    }
+                    else
+                    {
+                        FollowPlayer(GameObject.FindObjectOfType<PlayerController>(), 1f);
+                    }
                 }
             }
+            
         }
 
         void FollowPlayer(PlayerController player, float speedFraction)

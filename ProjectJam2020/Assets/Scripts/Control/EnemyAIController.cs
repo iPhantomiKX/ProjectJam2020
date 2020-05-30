@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Control
@@ -21,9 +22,20 @@ namespace RPG.Control
         public override void Update()
         {
             base.Update();
-            GetAllEnemies(GameObject.FindGameObjectsWithTag("Ally"));
+            //GetAllEnemies(GameObject.FindGameObjectsWithTag("Ally"));
+            foreach(var enemy in enemies)
+            {
+                if(!enemy.GetComponent<Health>().IsDead() && enemies.IndexOf(enemy) < 0)
+                {
+                    enemies.Add(enemy);
+                }
+                if(enemy.GetComponent<Health>().IsDead())
+                {
+                    enemies.Remove(enemy);
+                }
+            }
 
-            if (IsAggrevated() && fighter.CanAttack(ClosestEnemy(enemies)))
+            if (fighter.CanAttack(ClosestEnemy(enemies)))
             {
                 AttackBehaviour();
             }

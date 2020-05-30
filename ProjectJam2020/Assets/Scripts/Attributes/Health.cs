@@ -115,8 +115,15 @@ namespace RPG.Attributes
             GetComponent<ActionScheduler>().CancelCurrentAction();
             if(!gameObject.GetComponent<PlayerController>())
             {
-                Destroy(gameObject, 2);
+                StartCoroutine(DeactivateObject());
             }
+        }
+
+        IEnumerator DeactivateObject()
+        {
+            yield return new WaitForSeconds(2f);
+
+            gameObject.SetActive(false);
         }
 
         public void SpawnZombie()

@@ -53,8 +53,8 @@ namespace RPG.Control
 
         public virtual void Update()
         {
-            if(health.IsDead()) return;
-            UpdateTimer();
+            //if(health.IsDead()) return;
+            //UpdateTimer();
         }
 
         public void AddEnemyToList(GameObject Enemy)
